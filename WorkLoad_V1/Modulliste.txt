@@ -1,0 +1,48 @@
+1. Semester
+Wirtschaftswissenschaftliche Grundlagen 5 C
+Praxistransfer: Projektbericht 7 C
+Einführung in die WI 5 C
+Grundlagen der Programmierung 7 C
+Mathematik I 5 C
+Vermittlung von Methodenkompetenzen 5 C
+Zusatzfach 0 C
+2. Semester
+Projektmanagement 5 C
+Praxistransfer: Projektbericht 7 C
+Externes Rechnungswesen 5 C
+Volkswirtschaftslehre 6 C
+Objektorientierte Programmierung 7 C
+Mathematik II 5 C
+Zusatzfach 0 C
+3. Semester
+Betriebliche Funktionsbereiche 7 C
+Praxistransfer: Projektbericht 7 C
+Internes Finanz- und Rechnungswesen 7 C
+Betriebssysteme 7 C
+Datenbanken 7 C
+Zusatzfach 0 C
+4. Semester
+Management 6 C
+Praxistransfer: Studienarbeit 8 C
+Netzwerke 5 C
+Software Engineering 6 C
+Statistik 5 C
+Wahlpflichtfach I 5 C
+Zusatzfach 0 C
+5. Semester
+Wirtschaftsprivatrecht 6 C
+Praxistransfer:
+Mündliche Transferprüfung 7 C
+Geschäftsprozessmanagement 6 C
+IT-Management 6 C
+Wahlpflichtfach II 5 C
+Vermittlung von Sozialkompetenzen 5 C
+Zusatzfach 0 C
+6. Semester
+Business Intelligence Technologien 6 C
+Praxistransfer: Bachelor-Thesis 11 C
+Kolloquium 2 C
+E-Business 5 C
+Management komplexer Anwendungssysteme 7 C
+Wahlpflichtfach III 5 C
+Zusatzfach 0 C 
