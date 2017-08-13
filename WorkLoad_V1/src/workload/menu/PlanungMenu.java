@@ -87,8 +87,8 @@ public class PlanungMenu extends JDialog {
 		getContentPane().add(panel);
 		panel.setLayout(new FlowLayout(FlowLayout.RIGHT));
 		
-		JButton button = new JButton("Planungs\u00DCbersicht");
-		button.addActionListener(new ActionListener() {
+		JButton btnPlanungsbersicht = new JButton("Planungs\u00FCbersicht");
+		btnPlanungsbersicht.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PlanungsUebersicht pu = new PlanungsUebersicht();
 				
@@ -96,8 +96,8 @@ public class PlanungMenu extends JDialog {
 				pu.setVisible(true);
 			}
 		});
-		button.setHorizontalAlignment(SwingConstants.LEFT);
-		panel.add(button);
+		btnPlanungsbersicht.setHorizontalAlignment(SwingConstants.LEFT);
+		panel.add(btnPlanungsbersicht);
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBounds(10, 357, 538, 33);

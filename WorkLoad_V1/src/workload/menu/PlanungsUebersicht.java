@@ -48,7 +48,7 @@ public class PlanungsUebersicht extends JDialog {
 			String[] headers = { "Datum" , "Modul", "Betrag" };
 			
 			for (int i = 0; i < PlanungsVerwaltung.getInstance().getPlanungen().size(); i++) {
-				data[i][0] = PlanungsVerwaltung.getInstance().getPlanungen().get(i).getDatum().toString();
+				data[i][0] = PlanungsVerwaltung.getInstance().getPlanungen().get(i).getKal().getTime().toString();
 				data[i][1] = PlanungsVerwaltung.getInstance().getPlanungen().get(i).getModul().toString();
 				data[i][2] = PlanungsVerwaltung.getInstance().getPlanungen().get(i).getBetragString();
 			}

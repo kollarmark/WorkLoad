@@ -69,6 +69,7 @@ public class EintragsVerwaltung {
 				
 				Eintrag[] tmp = (Eintrag[]) ois.readObject();
 				
+				
 				for (int i = 0; i < tmp.length; i++) {
 					eintraege.add(tmp[i]);
 				}

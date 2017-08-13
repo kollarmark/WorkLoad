@@ -24,6 +24,7 @@ import com.toedter.calendar.JDateChooser;
 import workload.eintrag.Eintrag;
 import workload.eintrag.EintragsVerwaltung;
 import workload.modul.*;
+import javax.swing.SwingConstants;
 
 public class EintragMenu extends JDialog {
 
@@ -86,7 +87,7 @@ public class EintragMenu extends JDialog {
 		contentPanel.add(BetragTextField);
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setBounds(114, 357, 434, 33);
+			buttonPane.setBounds(203, 357, 345, 33);
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane);
 			{
@@ -138,5 +139,25 @@ public class EintragMenu extends JDialog {
 				buttonPane.add(cancelButton);
 			}
 		}
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(10, 357, 165, 33);
+		getContentPane().add(panel);
+		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
+		flowLayout.setAlignment(FlowLayout.LEFT);
+		
+		JButton btnNewButton = new JButton("Eintrags\u00FCbersicht");
+		btnNewButton.setHorizontalAlignment(SwingConstants.RIGHT);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				EintragsUebersicht eu = new EintragsUebersicht();
+				
+				eu.setLocationRelativeTo(getParent());
+				eu.setVisible(true);
+				
+			}
+		});
+		panel.add(btnNewButton);
 	}
 }

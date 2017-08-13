@@ -22,7 +22,7 @@ public class Uebersicht {
     // Standardkonstruktur, alle Einträge und Planungen enthalten (Cross-Join)
     
     public Uebersicht() {
-   	 generateUebersichtsElemente();
+   	 generiereUebersichtsElemente();
     }
     
     public String[] toStringArray() {
@@ -45,7 +45,7 @@ public class Uebersicht {
    	 this.uebersichtsElemente = uebersichtsElemente;
     }
     
-    public void generateUebersichtsElemente() {
+    public void generiereUebersichtsElemente() {
    	 
    	 EintragsVerwaltung ev = EintragsVerwaltung.getInstance();
    	 PlanungsVerwaltung pv = PlanungsVerwaltung.getInstance();
