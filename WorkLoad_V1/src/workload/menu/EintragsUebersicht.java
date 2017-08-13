@@ -49,39 +49,48 @@ public class EintragsUebersicht extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		{
-			EintragsVerwaltung.getInstance().readEintraege();
 			
-			String[][] data = new String[EintragsVerwaltung.getInstance().getEintraege().size()][3];
+			String[][] data = { {"" , "" , ""} };
 			String[] headers = { "Datum" , "Modul", "Betrag" };
 			
-			ArrayList<Eintrag> eint = EintragsVerwaltung.getInstance().getEintraege();
-			Eintrag[] temp = new Eintrag[eint.size()];
-			
-			for (int i = 0; i < temp.length; i++) {
-				temp[i] = eint.get(i);
-			}
-			
-			Comparator<Eintrag> eintragComparator = new Comparator<Eintrag>(){
-
-				@Override
-				public int compare(Eintrag o1, Eintrag o2) {
-					if (o1.getVergleichsDatum() > o2.getVergleichsDatum())
-						return 1;
-					else
-						return -1;
+			try {
+				EintragsVerwaltung.getInstance().readEintraege();
+				data = new String[EintragsVerwaltung.getInstance().getEintraege().size()][3];
+				
+				
+				ArrayList<Eintrag> eint = EintragsVerwaltung.getInstance().getEintraege();
+				Eintrag[] temp = new Eintrag[eint.size()];
+				
+				for (int i = 0; i < temp.length; i++) {
+					temp[i] = eint.get(i);
 				}
-			};
-			
-			Arrays.sort(temp, eintragComparator);
-			
-			for (int i = 0; i < temp.length; i++) {
-				System.out.println(temp[i].getVergleichsDatum());
-			}
-			
-			for (int i = 0; i < EintragsVerwaltung.getInstance().getEintraege().size(); i++) {
-				data[i][0] = temp[i].getKal().getTime().toString();
-				data[i][1] = temp[i].getModul().toString();
-				data[i][2] = temp[i].getBetragString();
+				
+				Comparator<Eintrag> eintragComparator = new Comparator<Eintrag>(){
+
+					@Override
+					public int compare(Eintrag o1, Eintrag o2) {
+						if (o1.getVergleichsDatum() > o2.getVergleichsDatum())
+							return 1;
+						else
+							return -1;
+					}
+				};
+				
+				Arrays.sort(temp, eintragComparator);
+				
+				for (int i = 0; i < temp.length; i++) {
+					System.out.println(temp[i].getVergleichsDatum());
+				}
+				
+				for (int i = 0; i < EintragsVerwaltung.getInstance().getEintraege().size(); i++) {
+					data[i][0] = temp[i].getKal().getTime().toString().substring(0, 11);
+					data[i][1] = temp[i].getModul().toString();
+					data[i][2] = temp[i].getBetragString();
+				}
+			} catch (Exception e) {
+				
+				dispose();
+				
 			}
 			
 			

@@ -20,14 +20,6 @@ public class EintragsVerwaltung {
 	
 	private EintragsVerwaltung() {}
 	
-	/*public static void main(String[] args) {
-		einzigartigeEintragsVerwaltung.getInstance().eintraege.add(new Eintrag(new Modul(), new Date(), 1));
-		einzigartigeEintragsVerwaltung.getInstance().eintraege.add(new Eintrag(new Modul(), new Date(), 1));
-		einzigartigeEintragsVerwaltung.getInstance().eintraege.add(new Eintrag(new Modul(), new Date(), 1));
-		
-		einzigartigeEintragsVerwaltung.saveEintraege();
-		einzigartigeEintragsVerwaltung.readEintraege();
-	}*/
 	
 	private static EintragsVerwaltung einzigartigeEintragsVerwaltung;
 	
@@ -62,7 +54,8 @@ public class EintragsVerwaltung {
 		
 		try {
 			
-			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("eintragsliste01.dat"));
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
+			
 			
 			try {
 				eintraege.clear();
@@ -95,15 +88,15 @@ public class EintragsVerwaltung {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			
 		}
 				
 	}
 	
 	public void saveEintraege() {
 		try {
-			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("eintragsliste01.dat"));
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
 			
 			Eintrag[] e = new Eintrag[eintraege.size()];
 			for (int i = 0; i < e.length; i++) {
@@ -120,6 +113,17 @@ public class EintragsVerwaltung {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void deleteEintraege() throws IOException {
+		// Das Löschen von allen Einträgen
+		
+		f.delete();
+		eintraege.clear();
+		
+		f.createNewFile();
+		
+		
 	}
 	
 

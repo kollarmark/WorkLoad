@@ -81,7 +81,7 @@ public class PlanungsUebersicht extends JDialog {
 			
 			
 			for (int i = 0; i < PlanungsVerwaltung.getInstance().getPlanungen().size(); i++) {
-				data[i][0] = temp[i].getKal().getTime().toString();
+				data[i][0] = temp[i].getKal().getTime().toString().substring(0, 11);
 				data[i][1] = temp[i].getModul().toString();
 				data[i][2] = temp[i].getBetragString();
 			}

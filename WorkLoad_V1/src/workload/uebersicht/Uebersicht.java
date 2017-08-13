@@ -73,7 +73,7 @@ public class Uebersicht {
    				 diff = ""+((pv.getPlanungen().get(j).getBetrag()) - (ev.getEintraege().get(i).getBetrag()));
    				 sort = ev.getEintraege().get(i).getVergleichsDatum();
    				 
-   				 uebersichtsElemente.add(new UebersichtsElement(datum, modul, geplant, gemacht, diff, sort));
+   				 uebersichtsElemente.add(new UebersichtsElement(datum.substring(0, 11), modul, geplant, gemacht, diff, sort));
    				 
    				 ev.getEintraege().get(i).setHasBeenMatched(true);
    				 pv.getPlanungen().get(j).setHasBeenMatched(true);
@@ -99,7 +99,7 @@ public class Uebersicht {
    			 diff = ev.getEintraege().get(i).getBetragString();
    			 sort = ev.getEintraege().get(i).getVergleichsDatum();
    			 
-   			 uebersichtsElemente.add(new UebersichtsElement(datum, modul, geplant, gemacht, diff, sort));
+   			 uebersichtsElemente.add(new UebersichtsElement(datum.substring(0, 11), modul, geplant, gemacht, diff, sort));
    		 }
    	 }
    	 
@@ -112,7 +112,7 @@ public class Uebersicht {
    			 diff = "-" + pv.getPlanungen().get(i).getBetragString();
    			 sort = pv.getPlanungen().get(i).getVergleichsDatum();
    			 
-   			 uebersichtsElemente.add(new UebersichtsElement(datum, modul, geplant, gemacht, diff, sort));
+   			 uebersichtsElemente.add(new UebersichtsElement(datum.substring(0, 11), modul, geplant, gemacht, diff, sort));
    		 }
    	 }
    	 

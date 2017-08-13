@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusListener;
 import java.io.File;
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -87,7 +88,7 @@ public class EintragMenu extends JDialog {
 		contentPanel.add(BetragTextField);
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setBounds(203, 357, 345, 33);
+			buttonPane.setBounds(298, 357, 250, 33);
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane);
 			{
@@ -141,7 +142,7 @@ public class EintragMenu extends JDialog {
 		}
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(10, 357, 165, 33);
+		panel.setBounds(10, 357, 266, 33);
 		getContentPane().add(panel);
 		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
 		flowLayout.setAlignment(FlowLayout.LEFT);
@@ -159,5 +160,20 @@ public class EintragMenu extends JDialog {
 			}
 		});
 		panel.add(btnNewButton);
+		
+		JButton btnAlleLschen = new JButton("Alle l\u00F6schen");
+		btnAlleLschen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					EintragsVerwaltung.getInstance().deleteEintraege();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}
+		});
+		panel.add(btnAlleLschen);
 	}
 }
