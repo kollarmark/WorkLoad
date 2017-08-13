@@ -14,7 +14,6 @@ public class UebersichtsElement {
 	private boolean matched;
 	
 	public UebersichtsElement(String datum, String modul, String geplant, String gemacht, String diff) {
-		super();
 		this.datum = datum;
 		this.modul = modul;
 		this.geplant = geplant;

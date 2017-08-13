@@ -74,7 +74,8 @@ public class EintragMenu extends JDialog {
 		
 		JDateChooser dateChooser = new JDateChooser();
 		contentPanel.add(dateChooser);
-		dateChooser.setDate(new Date());
+		//dateChooser.setDate(new Date());
+		
 		
 		
 		
@@ -111,7 +112,7 @@ public class EintragMenu extends JDialog {
 								
 								EintragsVerwaltung.getInstance().saveEintraege();
 								
-								JOptionPane.showMessageDialog(rootPane, ein.getModul() + " " + ein.getKal().getTime() + " " + ein.getBetrag());
+								JOptionPane.showMessageDialog(rootPane, ein.getModul() + " " + ein.getKal().get(Calendar.DAY_OF_MONTH) + " " + (ein.getKal().get(Calendar.MONTH)+1) + " " +  ein.getBetrag());
 								dispose();
 							}
 							

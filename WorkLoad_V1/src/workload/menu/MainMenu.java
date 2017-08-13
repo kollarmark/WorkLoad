@@ -15,6 +15,7 @@ import java.awt.FlowLayout;
 import javax.swing.BoxLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
+import java.io.EOFException;
 import java.io.File;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
@@ -112,9 +113,16 @@ public class MainMenu extends JFrame {
 		btnbersicht.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				UebersichtsMenu um = new UebersichtsMenu();
-				um.setLocationRelativeTo(getParent());
-				um.setVisible(true);
+				UebersichtsMenu um;
+				try {
+					um = new UebersichtsMenu();
+					um.setLocationRelativeTo(getParent());
+					um.setVisible(true);
+				} catch (EOFException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				
 			}
 		});

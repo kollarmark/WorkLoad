@@ -65,7 +65,7 @@ public class Uebersicht {
    					 (ev.getEintraege().get(i).getKal().get(Calendar.DATE) == pv.getPlanungen().get(j).getKal().get(Calendar.DATE)) &&		// Tag stimmt überein
    					 ev.getEintraege().get(i).getModul().toString().equals(pv.getPlanungen().get(j).getModul().toString()) ) {				// Modul stimmt überein
    				 
-   				 datum = ev.getEintraege().get(i).getDatum().toString();
+   				 datum = ev.getEintraege().get(i).getKal().getTime().toString();
    				 modul = ev.getEintraege().get(i).getModul().toString();
    				 geplant = pv.getPlanungen().get(j).getBetragString();
    				 gemacht = ev.getEintraege().get(i).getBetragString();
@@ -90,7 +90,7 @@ public class Uebersicht {
    	 
    	 for (int i = 0; i < ev.getEintraege().size(); i++) {
    		 if (!(ev.getEintraege().get(i).hasBeenMatched())) {
-   			 datum = ev.getEintraege().get(i).getDatum().toString();
+   			 datum = ev.getEintraege().get(i).getKal().getTime().toString();
    			 modul = ev.getEintraege().get(i).getModul().toString();
    			 geplant = "0";
    			 gemacht = ev.getEintraege().get(i).getBetragString();
@@ -102,7 +102,7 @@ public class Uebersicht {
    	 
    	 for (int i = 0; i < pv.getPlanungen().size(); i++) {
    		 if (!(pv.getPlanungen().get(i).hasBeenMatched())) {
-   			 datum = pv.getPlanungen().get(i).getDatum().toString();
+   			 datum = pv.getPlanungen().get(i).getKal().getTime().toString();
    			 modul = pv.getPlanungen().get(i).getModul().toString();
    			 geplant = pv.getPlanungen().get(i).getBetragString();
    			 gemacht = "" + 0;

@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.EOFException;
 import java.io.File;
 import java.io.IOException;
 
@@ -40,7 +41,7 @@ public class UebersichtsMenu extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public UebersichtsMenu() {
+	public UebersichtsMenu() throws EOFException {
 		setBounds(100, 100, 619, 518);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setLayout(new FlowLayout());
@@ -54,15 +55,15 @@ public class UebersichtsMenu extends JDialog {
 			//if(f.exists() && !f.isDirectory()) { 
 			
 			
-			
-			
 			Uebersicht u = new Uebersicht();
+			
+			
 			
 			data = new String[u.getUebersichtsElemente().size()][5];
 			
 			for (int i = 0; i < u.getUebersichtsElemente().size(); i++) {
 				
-				data[i][0] = u.getUebersichtsElemente().get(i).getDatum();/*u.getUebersichtsElemente().get(i).getDatum().toString()*/
+				data[i][0] = u.getUebersichtsElemente().get(i).getDatum();
 				data[i][1] = u.getUebersichtsElemente().get(i).getModul();
 				data[i][2] = u.getUebersichtsElemente().get(i).getGeplant();
 				data[i][3] = u.getUebersichtsElemente().get(i).getGemacht();

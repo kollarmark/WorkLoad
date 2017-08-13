@@ -73,7 +73,7 @@ public class PlanungMenu extends JDialog {
 		
 		JDateChooser dateChooser = new JDateChooser();
 		contentPanel.add(dateChooser);
-		dateChooser.setDate(new Date());
+		//dateChooser.setDate(new Date());
 		
 		
 		JLabel lblNewLabel = new JLabel("Betrag");
