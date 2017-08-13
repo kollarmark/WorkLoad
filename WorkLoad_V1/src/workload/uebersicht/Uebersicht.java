@@ -21,9 +21,9 @@ public class Uebersicht {
     
     // Standardkonstruktur, alle Einträge und Planungen enthalten (Cross-Join)
     
-    public Uebersicht() {
+    /*public Uebersicht() {
    	 generiereUebersichtsElemente();
-    }
+    }*/
     
     public String[] toStringArray() {
    	 
@@ -54,6 +54,7 @@ public class Uebersicht {
    	 pv.readPlanungen();
    	 
    	 String datum, modul, geplant, gemacht, diff;
+   	 int sort;
    	 
    	 for (int i = 0; i < ev.getEintraege().size(); i++) {
    		 for (int j = 0; j < pv.getPlanungen().size(); j++) {
@@ -70,8 +71,9 @@ public class Uebersicht {
    				 geplant = pv.getPlanungen().get(j).getBetragString();
    				 gemacht = ev.getEintraege().get(i).getBetragString();
    				 diff = ""+((pv.getPlanungen().get(j).getBetrag()) - (ev.getEintraege().get(i).getBetrag()));
+   				 sort = ev.getEintraege().get(i).getVergleichsDatum();
    				 
-   				 uebersichtsElemente.add(new UebersichtsElement(datum, modul, geplant, gemacht, diff));
+   				 uebersichtsElemente.add(new UebersichtsElement(datum, modul, geplant, gemacht, diff, sort));
    				 
    				 ev.getEintraege().get(i).setHasBeenMatched(true);
    				 pv.getPlanungen().get(j).setHasBeenMatched(true);
@@ -95,8 +97,9 @@ public class Uebersicht {
    			 geplant = "0";
    			 gemacht = ev.getEintraege().get(i).getBetragString();
    			 diff = ev.getEintraege().get(i).getBetragString();
+   			 sort = ev.getEintraege().get(i).getVergleichsDatum();
    			 
-   			 uebersichtsElemente.add(new UebersichtsElement(datum, modul, geplant, gemacht, diff));
+   			 uebersichtsElemente.add(new UebersichtsElement(datum, modul, geplant, gemacht, diff, sort));
    		 }
    	 }
    	 
@@ -107,8 +110,9 @@ public class Uebersicht {
    			 geplant = pv.getPlanungen().get(i).getBetragString();
    			 gemacht = "" + 0;
    			 diff = "-" + pv.getPlanungen().get(i).getBetragString();
+   			 sort = pv.getPlanungen().get(i).getVergleichsDatum();
    			 
-   			 uebersichtsElemente.add(new UebersichtsElement(datum, modul, geplant, gemacht, diff));
+   			 uebersichtsElemente.add(new UebersichtsElement(datum, modul, geplant, gemacht, diff, sort));
    		 }
    	 }
    	 

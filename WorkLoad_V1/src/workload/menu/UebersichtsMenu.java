@@ -10,6 +10,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.Arrays;
+import java.util.Comparator;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -19,7 +21,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
+import workload.eintrag.Eintrag;
 import workload.uebersicht.Uebersicht;
+import workload.uebersicht.UebersichtsElement;
 
 public class UebersichtsMenu extends JDialog {
 
@@ -59,16 +63,40 @@ public class UebersichtsMenu extends JDialog {
 			
 			
 			Uebersicht u = new Uebersicht();
+			u.generiereUebersichtsElemente();
 			
 			data = new String[u.getUebersichtsElemente().size()][5];
 			
+			UebersichtsElement[] temp = new UebersichtsElement[u.getUebersichtsElemente().size()];
+			
+			for (int i = 0; i < temp.length; i++) {
+				temp[i] = u.getUebersichtsElemente().get(i);
+			}
+			
+			Comparator<UebersichtsElement> ueEComparator = new Comparator<UebersichtsElement>(){
+
+				@Override
+				public int compare(UebersichtsElement o1, UebersichtsElement o2) {
+					if (o1.getDatumSort() > o2.getDatumSort())
+						return 1;
+					else
+						return -1;
+				}
+			};
+			
+			Arrays.sort(temp, ueEComparator);
+			
+			for (int i = 0; i < temp.length; i++) {
+				System.out.println(temp[i].getDatumSort());
+			}
+			
 			for (int i = 0; i < u.getUebersichtsElemente().size(); i++) {
 				
-				data[i][0] = u.getUebersichtsElemente().get(i).getDatum();
-				data[i][1] = u.getUebersichtsElemente().get(i).getModul();
-				data[i][2] = u.getUebersichtsElemente().get(i).getGeplant();
-				data[i][3] = u.getUebersichtsElemente().get(i).getGemacht();
-				data[i][4] = u.getUebersichtsElemente().get(i).getDiff();
+				data[i][0] = temp[i].getDatum();
+				data[i][1] = temp[i].getModul();
+				data[i][2] = temp[i].getGeplant();
+				data[i][3] = temp[i].getGemacht();
+				data[i][4] = temp[i].getDiff();
 				
 			}
 			

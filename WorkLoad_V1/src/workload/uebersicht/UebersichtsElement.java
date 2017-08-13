@@ -11,14 +11,16 @@ public class UebersichtsElement {
 	private String geplant;
 	private String gemacht;
 	private String diff;
+	private int datumSort;
 	private boolean matched;
 	
-	public UebersichtsElement(String datum, String modul, String geplant, String gemacht, String diff) {
+	public UebersichtsElement(String datum, String modul, String geplant, String gemacht, String diff, int sort) {
 		this.datum = datum;
 		this.modul = modul;
 		this.geplant = geplant;
 		this.gemacht = gemacht;
 		this.diff = diff;
+		this.datumSort = sort;
 	}
 
 	public String getDatum() {
@@ -67,6 +69,14 @@ public class UebersichtsElement {
 
 	public void setMatched(boolean matched) {
 		this.matched = matched;
+	}
+
+	public int getDatumSort() {
+		return datumSort;
+	}
+
+	public void setDatumSort(int datumSort) {
+		this.datumSort = datumSort;
 	}
 	
 	
