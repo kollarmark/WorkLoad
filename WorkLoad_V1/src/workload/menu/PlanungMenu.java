@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.Date;
 
 import javax.swing.JButton;
@@ -83,11 +84,12 @@ public class PlanungMenu extends JDialog {
 		contentPanel.add(BetragTextField);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(10, 357, 155, 33);
+		panel.setBounds(10, 357, 278, 33);
 		getContentPane().add(panel);
-		panel.setLayout(new FlowLayout(FlowLayout.RIGHT));
+		panel.setLayout(new FlowLayout(FlowLayout.LEFT));
 		
 		JButton btnPlanungsbersicht = new JButton("Planungs\u00FCbersicht");
+		btnPlanungsbersicht.setHorizontalAlignment(SwingConstants.LEFT);
 		btnPlanungsbersicht.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				PlanungsUebersicht pu = new PlanungsUebersicht();
@@ -96,11 +98,25 @@ public class PlanungMenu extends JDialog {
 				pu.setVisible(true);
 			}
 		});
-		btnPlanungsbersicht.setHorizontalAlignment(SwingConstants.LEFT);
 		panel.add(btnPlanungsbersicht);
+		
+		JButton btnAlleLschen = new JButton("Alle l\u00F6schen");
+		btnAlleLschen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					PlanungsVerwaltung.getInstance().deletePlanungen();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}
+		});
+		panel.add(btnAlleLschen);
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setBounds(10, 357, 538, 33);
+			buttonPane.setBounds(298, 357, 250, 33);
 			FlowLayout fl_buttonPane = new FlowLayout(FlowLayout.RIGHT);
 			buttonPane.setLayout(fl_buttonPane);
 			getContentPane().add(buttonPane);

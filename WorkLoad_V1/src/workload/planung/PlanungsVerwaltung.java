@@ -14,6 +14,7 @@ import workload.eintrag.Eintrag;
 public class PlanungsVerwaltung {
 	
 	private ArrayList<Planung> planungen = new ArrayList<Planung>();
+	private File f = new File("planungsliste01.dat");
 	
 	private PlanungsVerwaltung() {}
 	
@@ -48,7 +49,7 @@ public void readPlanungen() {
 		
 		try {
 			
-			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("planungsliste01.dat"));
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
 			
 			try {
 				planungen.clear();
@@ -81,15 +82,14 @@ public void readPlanungen() {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
 		}
 				
 	}
 	
 	public void savePlanungen() {
 		try {
-			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("planungsliste01.dat"));
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
 			
 			Planung[] e = new Planung[planungen.size()];
 			for (int i = 0; i < e.length; i++) {
@@ -106,6 +106,15 @@ public void readPlanungen() {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void deletePlanungen() throws IOException {
+		
+		f.delete();
+		planungen.clear();
+		
+		f.createNewFile();
+		
 	}
 
 	public ArrayList<Planung> getPlanungen() {
