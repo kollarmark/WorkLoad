@@ -17,6 +17,7 @@ public class Eintrag implements Serializable{
 	private int betrag;
 	private Date datum = kal.getTime();
 	private boolean hasBeenMatched = false; 
+	private int vergleichsDatum;
 	
 	
 	public Eintrag(Modul modul, Date d, int betrag) {
@@ -67,6 +68,13 @@ public class Eintrag implements Serializable{
 		this.hasBeenMatched = hasBeenMatched;
 	}
 	
-	
+	public int getVergleichsDatum() {
+		int monat = this.getKal().get(Calendar.MONTH)+1;
+		int tag = this.getKal().get(Calendar.DAY_OF_MONTH);
+		
+		int concat = Integer.valueOf(String.valueOf(monat) + String.valueOf(tag)); // Für den Vergleich nach Datum zusammensetzung von Monat und Tag z.B. 12. Aug = 812
+		
+		return concat;
+	}
 
 }

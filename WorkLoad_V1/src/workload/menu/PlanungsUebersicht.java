@@ -4,6 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -12,6 +15,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
+import workload.eintrag.Eintrag;
+import workload.eintrag.EintragsVerwaltung;
+import workload.planung.Planung;
 import workload.planung.PlanungsVerwaltung;
 
 public class PlanungsUebersicht extends JDialog {
@@ -47,10 +53,37 @@ public class PlanungsUebersicht extends JDialog {
 			String[][] data = new String[PlanungsVerwaltung.getInstance().getPlanungen().size()][3];
 			String[] headers = { "Datum" , "Modul", "Betrag" };
 			
+			ArrayList<Planung> plan = PlanungsVerwaltung.getInstance().getPlanungen();
+			Planung[] temp = new Planung[plan.size()];
+			
+			for (int i = 0; i < temp.length; i++) {
+				temp[i] = plan.get(i);
+			}
+			
+			Comparator<Planung> planungComparator = new Comparator<Planung>(){
+
+				@Override
+				public int compare(Planung o1, Planung o2) {
+					if (o1.getVergleichsDatum() > o2.getVergleichsDatum())
+						return 1;
+					else
+						return -1;
+				}
+			};
+			
+			Arrays.sort(temp, planungComparator);
+			
+			for (int i = 0; i < temp.length; i++) {
+				System.out.println(temp[i].getVergleichsDatum());
+			}
+			
+			
+			
+			
 			for (int i = 0; i < PlanungsVerwaltung.getInstance().getPlanungen().size(); i++) {
-				data[i][0] = PlanungsVerwaltung.getInstance().getPlanungen().get(i).getKal().getTime().toString();
-				data[i][1] = PlanungsVerwaltung.getInstance().getPlanungen().get(i).getModul().toString();
-				data[i][2] = PlanungsVerwaltung.getInstance().getPlanungen().get(i).getBetragString();
+				data[i][0] = temp[i].getKal().getTime().toString();
+				data[i][1] = temp[i].getModul().toString();
+				data[i][2] = temp[i].getBetragString();
 			}
 			
 			

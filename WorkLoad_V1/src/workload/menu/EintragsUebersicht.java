@@ -5,7 +5,10 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -58,22 +61,27 @@ public class EintragsUebersicht extends JDialog {
 				temp[i] = eint.get(i);
 			}
 			
-			int monat = 0;
-			int tag = 0;
-			int concat = 0;
+			Comparator<Eintrag> eintragComparator = new Comparator<Eintrag>(){
+
+				@Override
+				public int compare(Eintrag o1, Eintrag o2) {
+					if (o1.getVergleichsDatum() > o2.getVergleichsDatum())
+						return 1;
+					else
+						return -1;
+				}
+			};
+			
+			Arrays.sort(temp, eintragComparator);
+			
 			for (int i = 0; i < temp.length; i++) {
-				monat = temp[i].getKal().get(Calendar.MONTH)+1;
-				tag = temp[i].getKal().get(Calendar.DAY_OF_MONTH);
-				
-				concat = Integer.valueOf(String.valueOf(monat) + String.valueOf(tag)); // Für den Vergleich nach Datum zusammensetzung von Monat und Tag z.B. 12. Aug = 812
-				
-				System.out.println(concat);
+				System.out.println(temp[i].getVergleichsDatum());
 			}
 			
 			for (int i = 0; i < EintragsVerwaltung.getInstance().getEintraege().size(); i++) {
-				data[i][0] = EintragsVerwaltung.getInstance().getEintraege().get(i).getKal().getTime().toString();
-				data[i][1] = EintragsVerwaltung.getInstance().getEintraege().get(i).getModul().toString();
-				data[i][2] = EintragsVerwaltung.getInstance().getEintraege().get(i).getBetragString();
+				data[i][0] = temp[i].getKal().getTime().toString();
+				data[i][1] = temp[i].getModul().toString();
+				data[i][2] = temp[i].getBetragString();
 			}
 			
 			
