@@ -23,6 +23,7 @@ public class PlanungsVerwaltung {
 	public static PlanungsVerwaltung getInstance() {
 		if (pv == null) {
 			pv = new PlanungsVerwaltung();
+			return pv;
 		}
 		
 		
@@ -109,6 +110,7 @@ public void readPlanungen() {
 	}
 	
 	public void deletePlanungen() throws IOException {
+		//Löschen von allen Planungen
 		
 		f.delete();
 		planungen.clear();

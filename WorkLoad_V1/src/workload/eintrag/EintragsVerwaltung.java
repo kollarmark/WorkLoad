@@ -20,7 +20,6 @@ public class EintragsVerwaltung {
 	
 	private EintragsVerwaltung() {}
 	
-	
 	private static EintragsVerwaltung einzigartigeEintragsVerwaltung;
 	
 	public static EintragsVerwaltung getInstance() {
@@ -134,10 +133,6 @@ public class EintragsVerwaltung {
 	public void setEintraege(ArrayList<Eintrag> eintraege) {
 		this.eintraege = eintraege;
 	}
-	
-	// Hier auch Serialisierung der Eintragsobjekte
-	 
-	// Oder: Im EintragMenu Eintragobjekte serialisiert und hier eingelesen xx
 	
 	
 	
