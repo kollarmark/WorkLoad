@@ -36,6 +36,7 @@ public class UebersichtsMenu extends JDialog {
 	public static void main(String[] args) {
 		try {
 			UebersichtsMenu dialog = new UebersichtsMenu();
+			
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 			dialog.pack();
@@ -48,6 +49,7 @@ public class UebersichtsMenu extends JDialog {
 	 * Create the dialog.
 	 */
 	public UebersichtsMenu() throws EOFException {
+		setTitle("Übersicht");
 		setBounds(100, 100, 619, 518);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setLayout(new FlowLayout());

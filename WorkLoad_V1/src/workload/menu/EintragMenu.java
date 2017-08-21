@@ -37,6 +37,7 @@ public class EintragMenu extends JDialog {
 	public static void main(String[] args) {
 		try {
 			EintragMenu dialog = new EintragMenu();
+			
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -48,6 +49,7 @@ public class EintragMenu extends JDialog {
 	 * Create the dialog.
 	 */
 	public EintragMenu() {
+		setTitle("Einträge");
 		setBounds(100, 100, 574, 440);
 		getContentPane().setLayout(null);
 		contentPanel.setBounds(0, 0, 548, 346);

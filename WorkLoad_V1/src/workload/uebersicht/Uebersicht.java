@@ -70,7 +70,7 @@ public class Uebersicht {
    				 modul = ev.getEintraege().get(i).getModul().toString();
    				 geplant = pv.getPlanungen().get(j).getBetragString();
    				 gemacht = ev.getEintraege().get(i).getBetragString();
-   				 diff = ""+((pv.getPlanungen().get(j).getBetrag()) - (ev.getEintraege().get(i).getBetrag()));
+   				 diff = ""+Math.negateExact(((pv.getPlanungen().get(j).getBetrag()) - (ev.getEintraege().get(i).getBetrag())));
    				 sort = ev.getEintraege().get(i).getVergleichsDatum();
    				 
    				 uebersichtsElemente.add(new UebersichtsElement(datum.substring(0, 11), modul, geplant, gemacht, diff, sort));

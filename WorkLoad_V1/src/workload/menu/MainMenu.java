@@ -32,6 +32,7 @@ public class MainMenu extends JFrame {
 			public void run() {
 				try {
 					MainMenu frame = new MainMenu();
+					
 					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
 					
@@ -70,6 +71,8 @@ public class MainMenu extends JFrame {
 	 * Create the frame.
 	 */
 	public MainMenu() {
+		
+		setTitle("WorkLoad V1.0");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 477, 332);
 		contentPane = new JPanel();

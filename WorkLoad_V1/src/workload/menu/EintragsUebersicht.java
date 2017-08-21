@@ -32,6 +32,7 @@ public class EintragsUebersicht extends JDialog {
 	public static void main(String[] args) {
 		try {
 			EintragsUebersicht dialog = new EintragsUebersicht();
+			
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -43,6 +44,7 @@ public class EintragsUebersicht extends JDialog {
 	 * Create the dialog.
 	 */
 	public EintragsUebersicht() {
+		setTitle("Einträge");
 		setBounds(100, 100, 500, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setLayout(new FlowLayout());

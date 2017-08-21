@@ -31,6 +31,7 @@ public class PlanungsUebersicht extends JDialog {
 	public static void main(String[] args) {
 		try {
 			PlanungsUebersicht dialog = new PlanungsUebersicht();
+			
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -42,6 +43,7 @@ public class PlanungsUebersicht extends JDialog {
 	 * Create the dialog.
 	 */
 	public PlanungsUebersicht() {
+		setTitle("Planungen");
 		setBounds(100, 100, 500, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setLayout(new FlowLayout());
