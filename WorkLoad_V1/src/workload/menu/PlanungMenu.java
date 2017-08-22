@@ -127,6 +127,9 @@ public class PlanungMenu extends JDialog {
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						// Verifizieren
+						if ( BetragTextField.getText().equals("")) {
+							JOptionPane.showMessageDialog(rootPane, "Bitte Betrag eingeben.");
+						} else {
 						
 						Planung pla = new Planung((Modul)modulComboBox.getSelectedItem(), dateChooser.getDate(), Integer.parseInt(BetragTextField.getText()));
 						
@@ -144,6 +147,7 @@ public class PlanungMenu extends JDialog {
 						
 						JOptionPane.showMessageDialog(rootPane, pla.getModul() + " " + pla.getKal().getTime() + " " + pla.getBetrag()/*ein.getKal().get(Calendar.DAY_OF_MONTH) + " " + ein.getKal().get(Calendar.MONTH) + " " + ein.getKal().get(Calendar.YEAR) ein.getKal().getTime()*/);
 						dispose();
+					}
 					}
 				});
 				okButton.setActionCommand("OK");
