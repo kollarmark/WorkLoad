@@ -1,4 +1,4 @@
-package workload.eintrag;
+ package workload.eintrag;
 
 import java.io.File;
 import java.io.FileInputStream;

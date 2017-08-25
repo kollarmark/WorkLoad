@@ -108,6 +108,7 @@ public class PlanungMenu extends JDialog {
 				
 				try {
 					PlanungsVerwaltung.getInstance().deletePlanungen();
+					JOptionPane.showMessageDialog(rootPane, "Planungen gelöscht!");
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -142,7 +143,7 @@ public class PlanungMenu extends JDialog {
 						
 						PlanungsVerwaltung.getInstance().savePlanungen();
 						
-						JOptionPane.showMessageDialog(rootPane, pla.getModul() + " " + pla.getKal().getTime() + " " + pla.getBetrag()/*ein.getKal().get(Calendar.DAY_OF_MONTH) + " " + ein.getKal().get(Calendar.MONTH) + " " + ein.getKal().get(Calendar.YEAR) ein.getKal().getTime()*/);
+						JOptionPane.showMessageDialog(rootPane, "Planungen gespeichert!");
 						dispose();
 					}
 				});
