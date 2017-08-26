@@ -26,7 +26,7 @@ public class Eintrag implements Serializable{
 		this.betrag = betrag;
 	}
 	public Eintrag() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	public Modul getModul() {
 		return modul;
@@ -68,6 +68,7 @@ public class Eintrag implements Serializable{
 		this.hasBeenMatched = hasBeenMatched;
 	}
 	
+	// Zusammengesetzter Integer für das Vergleichen von Datumsobjekten
 	public int getVergleichsDatum() {
 		int monat = this.getKal().get(Calendar.MONTH)+1;
 		int tag = this.getKal().get(Calendar.DAY_OF_MONTH);

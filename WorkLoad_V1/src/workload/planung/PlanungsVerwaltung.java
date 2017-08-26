@@ -20,25 +20,12 @@ public class PlanungsVerwaltung {
 	
 	private static PlanungsVerwaltung pv;
 	
+	// Singleton
 	public static PlanungsVerwaltung getInstance() {
 		if (pv == null) {
 			pv = new PlanungsVerwaltung();
 			return pv;
 		}
-		
-		
-		// Generierung der Datei
-			/*File f = new File("planungsliste01.dat");
-			if(f.exists() && !f.isDirectory()) { 
-				
-			} else {
-				try {
-					f.createNewFile();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}*/
 		
 		return pv;
 	}
@@ -53,7 +40,7 @@ public void readPlanungen() {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
 			
 			try {
-				planungen.clear();
+				planungen.clear();	// Um einen "frischen" Stand zu erhalten.
 				
 				Planung[] tmp = (Planung[]) ois.readObject();
 				
@@ -61,19 +48,18 @@ public void readPlanungen() {
 					planungen.add(tmp[i]);
 				}
 				
-				//planungen = (ArrayList<Eintrag>) Arrays.asList(tmp);
 				ois.close();
 				
 				// Test
 				
-				System.out.println("Planungen");
+				/*System.out.println("Planungen");
 				System.out.println("---");
 				for (int i = 0; i < planungen.size(); i++) {
 					
 					System.out.println(planungen.get(i));
 					
 				}
-				System.out.println("---");
+				System.out.println("---");*/
 				
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block

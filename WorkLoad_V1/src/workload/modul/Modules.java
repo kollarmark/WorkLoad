@@ -21,7 +21,7 @@ public class Modules {
 			
 			while ((line = br.readLine()) != null) {
 
-                // use comma as separator
+                // Komma als Separator
                 module = line.split(csvSplitBy);
                 
                 String sem;
@@ -40,10 +40,7 @@ public class Modules {
 			e.printStackTrace();
 		}
 
-		for (int i = 0; i < modules.size(); i++) {
-			//System.out.println(modules.get(i));
-		}
-		
+		// Serialisierung der Modulliste
 		try {
 			ObjectOutputStream  oos = new ObjectOutputStream(new FileOutputStream("modulelist.dat"));
 			Modul[] moduleArray = new Modul[modules.size()];
@@ -51,7 +48,7 @@ public class Modules {
 			oos.writeObject(moduleArray);
 			oos.close();
 			
-			// Test
+			// Wieder einlesen als Verifizierung
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("modulelist.dat"));
 			loadedModules = (Modul[])ois.readObject();
 			ois.close();

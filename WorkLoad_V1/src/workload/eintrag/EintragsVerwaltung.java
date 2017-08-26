@@ -22,26 +22,13 @@ public class EintragsVerwaltung {
 	
 	private static EintragsVerwaltung einzigartigeEintragsVerwaltung;
 	
+	
+	// Singleton
 	public static EintragsVerwaltung getInstance() {
 		if (einzigartigeEintragsVerwaltung == null) {
 			einzigartigeEintragsVerwaltung = new EintragsVerwaltung();
 			return einzigartigeEintragsVerwaltung;
 		}
-		
-		// Generierung der Datei
-		/*File f = new File("eintragsliste01.dat");
-		if(f.exists() && !f.isDirectory()) { 
-			
-		} else {
-			try {
-				f.createNewFile();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}*/
-		
-		
 		
 		return einzigartigeEintragsVerwaltung;
 	}
@@ -57,7 +44,7 @@ public class EintragsVerwaltung {
 			
 			
 			try {
-				eintraege.clear();
+				eintraege.clear();  // Um einen "frischen" Stand zu erhalten.
 				
 				Eintrag[] tmp = (Eintrag[]) ois.readObject();
 				
@@ -66,18 +53,17 @@ public class EintragsVerwaltung {
 					eintraege.add(tmp[i]);
 				}
 				
-				//eintraege = (ArrayList<Eintrag>) Arrays.asList(tmp);
 				ois.close();
 				
 				// Test
-				System.out.println("Einträge");
+				/*System.out.println("Einträge");
 				System.out.println("---");
 				for (int i = 0; i < eintraege.size(); i++) {
 					
 					System.out.println(eintraege.get(i));
 					
 				}
-				System.out.println("---");
+				System.out.println("---");*/
 				
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
