@@ -62,6 +62,8 @@ public class PlanungsUebersicht extends JDialog {
 				temp[i] = plan.get(i);
 			}
 			
+			
+			// Komparator für das Vergleichen von Planungsobjekten (nach Datum)
 			Comparator<Planung> planungComparator = new Comparator<Planung>(){
 
 				@Override
@@ -78,8 +80,6 @@ public class PlanungsUebersicht extends JDialog {
 			for (int i = 0; i < temp.length; i++) {
 				System.out.println(temp[i].getVergleichsDatum());
 			}
-			
-			
 			
 			
 			for (int i = 0; i < PlanungsVerwaltung.getInstance().getPlanungen().size(); i++) {

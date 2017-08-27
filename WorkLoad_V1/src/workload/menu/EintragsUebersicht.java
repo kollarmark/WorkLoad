@@ -67,6 +67,7 @@ public class EintragsUebersicht extends JDialog {
 					temp[i] = eint.get(i);
 				}
 				
+				// Komparator für das Vergleichen von Eintragsobjekten (nach Datum)
 				Comparator<Eintrag> eintragComparator = new Comparator<Eintrag>(){
 
 					@Override
@@ -77,6 +78,7 @@ public class EintragsUebersicht extends JDialog {
 							return -1;
 					}
 				};
+				
 				
 				Arrays.sort(temp, eintragComparator);
 				

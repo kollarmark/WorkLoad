@@ -70,10 +70,6 @@ public class UebersichtsMenu extends JDialog {
 			
 			String [][] data = { {"", "", "", "", ""} };
 			
-			//File f = new File("eintragsliste01.dat");
-			//if(f.exists() && !f.isDirectory()) { 
-			
-			
 			
 			Uebersicht u = new Uebersicht();
 			u.generiereUebersichtsElemente();
@@ -86,6 +82,8 @@ public class UebersichtsMenu extends JDialog {
 				temp[i] = u.getUebersichtsElemente().get(i);
 			}
 			
+			
+			// Komparator für das Vergleichen von Übersichtselementen
 			Comparator<UebersichtsElement> ueEComparator = new Comparator<UebersichtsElement>(){
 
 				@Override
@@ -129,13 +127,6 @@ public class UebersichtsMenu extends JDialog {
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						
-						//System.getProperty("user.dir");
-						
-						/*File f = new File("");
-						if(f.exists() && !f.isDirectory()) { 
-						    // do something
-						}*/
-						
 						dispose();
 					}
 				});
@@ -163,14 +154,11 @@ public class UebersichtsMenu extends JDialog {
 		btnVisualisieren.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				// Hier Diagramm
+				// Darstellung von den Einträgen und Planungen in einem Liniendiagramm mithilfe der JFreeChart Library
 				
 				EintragsVerwaltung ev = EintragsVerwaltung.getInstance();
 				PlanungsVerwaltung pv = PlanungsVerwaltung.getInstance();
 				
-				// Einträge u P sollten iwie sortiert werden
-				// hier gibts ne sortierte array von den einträgen
-				// bei übersichtselementen einfach separat in array nehmen, nullwerte auch
 				
 				Eintrag[] tempEintragArray = new Eintrag[EintragsVerwaltung.getInstance().getEintraege().size()];
 				
@@ -214,13 +202,6 @@ public class UebersichtsMenu extends JDialog {
 				}
 				
 				
-				  /*dataset.addValue( 15 , "schools" , "1970" );
-			      dataset.addValue( 30 , "schools" , "1980" );
-			      dataset.addValue( 60 , "schools" , "1990" );
-			      dataset.addValue( 120 , "schools" , "2000" );
-			      dataset.addValue( 240 , "schools" , "2010" ); 
-			      dataset.addValue( 300 , "schools" , "2014" );*/
-
 			      JFreeChart lineChartObject = ChartFactory.createLineChart(
 			         "Aufwandsdiagramm","Datum",
 			         "Aufwand",
@@ -228,7 +209,6 @@ public class UebersichtsMenu extends JDialog {
 			         true,true,false);
 			      
 			      ChartPanel chartPanel = new ChartPanel( lineChartObject );
-			      //chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
 			      
 			      JDialog diagramm = new JDialog();
 			      diagramm.setContentPane(chartPanel);

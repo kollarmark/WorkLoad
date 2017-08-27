@@ -66,11 +66,12 @@ public class EintragsVerwaltung {
 				System.out.println("---");*/
 				
 			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
+				System.out.println("Die Datei für die Speicherung von Einträgen ist fehlerhaft.");
+				
 				e.printStackTrace();
 			}
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Die Datei für die Speicherung von Einträgen konnte nicht gefunden werden.");
 			e.printStackTrace();
 		} catch (IOException e) {
 			
@@ -92,7 +93,7 @@ public class EintragsVerwaltung {
 			oos.close();
 			
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Die Datei für die Speicherung von Einträgen konnte nicht gefunden werden.");
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

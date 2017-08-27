@@ -73,15 +73,8 @@ public class EintragMenu extends JDialog {
 		JLabel DatumLabel = new JLabel("Datum");
 		contentPanel.add(DatumLabel);
 		
-		
-		//System.out.println(cal.get(Calendar.MONTH));
-		
 		JDateChooser dateChooser = new JDateChooser();
 		contentPanel.add(dateChooser);
-		//dateChooser.setDate(new Date());
-		
-		
-		
 		
 		JLabel lblNewLabel = new JLabel("Betrag");
 		contentPanel.add(lblNewLabel);
@@ -99,7 +92,7 @@ public class EintragMenu extends JDialog {
 					public void actionPerformed(ActionEvent e) {
 						
 						
-						// Verifizieren
+						// Verifizierung der Eingabe
 						
 						if ( BetragTextField.getText().equals("")) {
 							JOptionPane.showMessageDialog(rootPane, "Bitte Betrag eingeben.");
@@ -109,16 +102,14 @@ public class EintragMenu extends JDialog {
 							
 							// Bei keiner Eingabe Eintrag nicht speichern
 							
-							if (!(BetragTextField.getText().equals(""))) {
-								EintragsVerwaltung.getInstance().getEintraege().add(ein);
-								
-								// Serialisierung des Objektes
-								
-								EintragsVerwaltung.getInstance().saveEintraege();
-								
-								JOptionPane.showMessageDialog(rootPane, "Eintrag gespeichert!");
-								dispose();
-							}
+							EintragsVerwaltung.getInstance().getEintraege().add(ein);
+							
+							// Speichern des Eintrags
+							
+							EintragsVerwaltung.getInstance().saveEintraege();
+							
+							JOptionPane.showMessageDialog(rootPane, "Eintrag gespeichert!");
+							dispose();
 							
 						}
 						
@@ -171,7 +162,7 @@ public class EintragMenu extends JDialog {
 					EintragsVerwaltung.getInstance().deleteEintraege();
 					JOptionPane.showMessageDialog(rootPane, "Einträge gelöscht!");
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
+					JOptionPane.showMessageDialog(rootPane, "Fehler beim Löschen von Einträgen!");
 					e1.printStackTrace();
 				}
 				

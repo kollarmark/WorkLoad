@@ -58,6 +58,7 @@ public class PlanungMenu extends JDialog {
 		JLabel ModulLabel = new JLabel("Modul");
 		contentPanel.add(ModulLabel);
 		
+		// Module laden
 		Modules m = new Modules();
 		m.readModules();
 		
@@ -71,13 +72,8 @@ public class PlanungMenu extends JDialog {
 		JLabel DatumLabel = new JLabel("Datum");
 		contentPanel.add(DatumLabel);
 		
-		
-		//System.out.println(cal.get(Calendar.MONTH));
-		
 		JDateChooser dateChooser = new JDateChooser();
 		contentPanel.add(dateChooser);
-		//dateChooser.setDate(new Date());
-		
 		
 		JLabel lblNewLabel = new JLabel("Betrag");
 		contentPanel.add(lblNewLabel);
@@ -110,7 +106,7 @@ public class PlanungMenu extends JDialog {
 					PlanungsVerwaltung.getInstance().deletePlanungen();
 					JOptionPane.showMessageDialog(rootPane, "Planungen gelöscht!");
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
+					JOptionPane.showMessageDialog(rootPane, "Fehler beim Löschen von Planungen!");
 					e1.printStackTrace();
 				}
 				
@@ -136,13 +132,7 @@ public class PlanungMenu extends JDialog {
 						
 						PlanungsVerwaltung.getInstance().getPlanungen().add(pla);
 						
-						/*ein.setModul((Modul)modulComboBox.getSelectedItem());
-						
-						ein.getKal().setTime(dateChooser.getDate());
-						
-						ein.setBetrag(Integer.parseInt(BetragTextField.getText()));*/
-						
-						// Serialisierung des Objektes
+						// Speichern von Planungen
 						
 						PlanungsVerwaltung.getInstance().savePlanungen();
 						

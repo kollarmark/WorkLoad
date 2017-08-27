@@ -36,7 +36,7 @@ public class MainMenu extends JFrame {
 					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
 					
-					// Generierung der Datei
+					// Generierung der Dateien
 					File f = new File("eintragsliste01.dat");
 					if(f.exists() && !f.isDirectory()) { 
 						
@@ -122,7 +122,6 @@ public class MainMenu extends JFrame {
 					um.setLocationRelativeTo(getParent());
 					um.setVisible(true);
 				} catch (EOFException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				

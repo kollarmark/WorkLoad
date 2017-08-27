@@ -33,7 +33,6 @@ public class PlanungsVerwaltung {
 public void readPlanungen() {
 		
 		// Auslesen aus der Datei
-
 		
 		try {
 			
@@ -62,11 +61,15 @@ public void readPlanungen() {
 				System.out.println("---");*/
 				
 			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
+				
+				System.out.println("Die Datei für die Speicherung von Planungen ist fehlerhaft.");
+				
 				e.printStackTrace();
 			}
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			
+			System.out.println("Die Datei für die Speicherung von Planungen konnte nicht gefunden werden.");
+			
 			e.printStackTrace();
 		} catch (IOException e) {
 			
@@ -87,7 +90,8 @@ public void readPlanungen() {
 			oos.close();
 			
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Die Datei für die Speicherung von Planungen konnte nicht gefunden werden.");
+			
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

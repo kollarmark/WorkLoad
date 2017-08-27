@@ -13,17 +13,15 @@ public class Uebersicht {
     
     // Zusammenführung von EintragsVerwaltung und PlanungsVerwaltung
     
-    // Wiedergibt eine Liste von der Summe von Einträgen und Planungen abhängig von dem Datum
+    // Wiedergibt eine Liste der Summe von Einträgen und Planungen abhängig vom Datum
     
-    // Beim anklicken der Übersicht muss das neue Auslesen der Einträge geforcet werden
+    // Beim anklicken der Übersicht wird das neue Auslesen der Einträge geforcet
     
     private ArrayList<UebersichtsElement> uebersichtsElemente = new ArrayList<UebersichtsElement>();
     
-    // Standardkonstruktur, alle Einträge und Planungen enthalten (Cross-Join)
     
-    /*public Uebersicht() {
-   	 generiereUebersichtsElemente();
-    }*/
+    public Uebersicht() {
+    }
     
     public String[] toStringArray() {
    	 
