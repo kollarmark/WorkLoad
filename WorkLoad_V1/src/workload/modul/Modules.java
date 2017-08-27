@@ -1,5 +1,9 @@
 package workload.modul;
 
+/**
+ * @author MK - MNr 611396
+ */
+
 import java.io.*;
 import java.util.ArrayList;
 

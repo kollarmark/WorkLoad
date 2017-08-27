@@ -1,5 +1,9 @@
 package workload.menu;
 
+/**
+ * @author MK - MNr 611396
+ */
+
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.TextField;

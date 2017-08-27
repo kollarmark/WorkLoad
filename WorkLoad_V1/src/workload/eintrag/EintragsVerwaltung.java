@@ -1,4 +1,8 @@
- package workload.eintrag;
+package workload.eintrag;
+
+/**
+ * @author MK - MNr 611396
+ */
 
 import java.io.File;
 import java.io.FileInputStream;

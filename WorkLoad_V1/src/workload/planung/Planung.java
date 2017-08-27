@@ -1,5 +1,9 @@
 package workload.planung;
 
+/**
+ * @author MK - MNr 611396
+ */
+
 import java.io.Serializable;
 import java.util.Date;
 

@@ -1,5 +1,9 @@
 package workload.eintrag;
 
+/**
+ * @author MK - MNr 611396
+ */
+
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;

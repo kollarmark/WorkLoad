@@ -1,5 +1,9 @@
 package workload.uebersicht;
 
+/**
+ * @author MK - MNr 611396
+ */
+
 import workload.eintrag.Eintrag;
 import workload.planung.Planung;
 

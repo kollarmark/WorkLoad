@@ -1,5 +1,9 @@
 package workload.uebersicht;
 
+/**
+ * @author MK - MNr 611396
+ */
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;

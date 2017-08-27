@@ -1,5 +1,9 @@
 package workload.menu;
 
+/**
+ * @author MK - MNr 611396
+ */
+
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;

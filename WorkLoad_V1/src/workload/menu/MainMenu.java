@@ -1,5 +1,10 @@
 package workload.menu;
 
+/**
+ * @author MK - MNr 611396
+ */
+
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -130,5 +135,9 @@ public class MainMenu extends JFrame {
 		});
 		btnbersicht.setBounds(174, 105, 89, 23);
 		contentPane.add(btnbersicht);
+		
+		JLabel lblAHwrProject = new JLabel("A HWR Project \u00A9 2017");
+		lblAHwrProject.setBounds(293, 268, 141, 14);
+		contentPane.add(lblAHwrProject);
 	}
 }
